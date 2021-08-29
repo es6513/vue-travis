@@ -9,7 +9,9 @@
         >vue-cli documentation</a
       >.
     </p>
-    <div>{{ count }}</div>
+    <div>{{ dateTime }}</div>
+    <div class="count">Count: {{ count }}</div>
+    <button @click="increment">Clicke me</button>
   </div>
 </template>
 
@@ -22,8 +24,14 @@ export default {
   },
   data() {
     return {
-      count: dayjs(new Date()),
+      dateTime: dayjs(new Date()),
+      count: 0,
     };
+  },
+  methods: {
+    increment() {
+      this.count += 1;
+    },
   },
 };
 </script>
