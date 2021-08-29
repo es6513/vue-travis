@@ -1,29 +1,14 @@
-language: node_js # 指定語言為node.js 10
+language: node_js
 node_js:
-  - "10"
+ - "node"
+cache: npm
 
-cache:
-  yarn: true
-  directories:
-    - "node_modules"
-
-branches:
-  only:
-    - main # 指定當master branch發生變動時才觸發
-
-# 定義觸發後的行為，還有其他像是before_install等callback
-install:
-  - yarn install
-  - yarn run build
-
-script:
-  - echo "Skipping tests"
+script: yarn run build
 
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN # 這裏到時候會在環境設定我們在GitHub拿到的Access Token
-  target-branch: gh-pages # 把build出來的檔案push進GitHub Pages用的branch
-  local-dir: dist # Vue專案預設build到的資料夾，當然這是可以更動的
-  on:
-    branch: main
+ provider: pages
+ skip_cleanup: true
+ github_token: $GH_TOKEN
+ local_dir: dist
+ on:
+   branch: main
