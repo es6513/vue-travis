@@ -2,20 +2,23 @@ language: node_js
 node_js:
  - "node"
 
- branches:
-  only:
-    - dev
-
 cache: npm
 
 script: 
   - yarn run test:unit
   - yarn run build
 
-deploy:
- provider: pages
- skip_cleanup: true
+
+<<: &github_keyset
  github_token: $GH_TOKEN
+
+<<: &deploy_setting
+ skip_cleanup: true
  local_dir: dist
+
+deploy:
+ - provider: pages
+ <<: *github_keyset
+ <<: *deploy_setting
  on:
    branch: main
