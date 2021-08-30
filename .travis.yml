@@ -17,7 +17,7 @@ script:
  local_dir: dist
 
 deploy:
- - provider: pages
+ provider: pages
  <<: *github_keyset
  <<: *deploy_setting
  on:
