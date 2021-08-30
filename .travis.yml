@@ -17,8 +17,13 @@ script:
  local_dir: dist
 
 deploy:
- provider: pages
- <<: *github_keyset
- <<: *deploy_setting
- on:
-   branch: main
+  - provider: pages
+  <<: *github_keyset
+  <<: *deploy_setting
+  on:
+    branch: main  
+  - provider: pages
+  <<: *github_keyset
+  <<: *deploy_setting
+  on:
+    branch: dev
