@@ -5,6 +5,7 @@ node_js:
  branches:
   only:
     - main
+    - dev
 
 cache: npm
 

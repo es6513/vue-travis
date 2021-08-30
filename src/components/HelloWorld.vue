@@ -17,7 +17,7 @@
     </button>
 
     <input class="myInput" v-model.number="step" />
-    <div>Test Content 2</div>
+    <div>Test Content 3</div>
   </div>
 </template>
 
