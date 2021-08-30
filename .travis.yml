@@ -27,4 +27,4 @@ deploy:
   <<: *github_keyset
   <<: *deploy_setting
   on:
-    branch: dev
+    branch: main
