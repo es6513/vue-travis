@@ -11,7 +11,12 @@
     </p>
     <div>{{ dateTime }}</div>
     <div class="count">Count: {{ count }}</div>
-    <button @click="increment">Clicke me</button>
+    <button @click="increment">Add Input Number To Count</button>
+    <button class="decrement" @click="decrement">
+      Add Input Number To Count
+    </button>
+
+    <input class="myInput" v-model.number="step" />
   </div>
 </template>
 
@@ -26,11 +31,15 @@ export default {
     return {
       dateTime: dayjs(new Date()),
       count: 0,
+      step: 0,
     };
   },
   methods: {
     increment() {
-      this.count += 1;
+      this.count += this.step;
+    },
+    decrement() {
+      this.count -= 1;
     },
   },
 };
