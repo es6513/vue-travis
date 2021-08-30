@@ -21,9 +21,4 @@ deploy:
   <<: *github_keyset
   <<: *deploy_setting
   on:
-    branch: main  
-   provider: pages
-  <<: *github_keyset
-  <<: *deploy_setting
-  on:
     branch: dev
